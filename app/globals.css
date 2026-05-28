@@ -3995,6 +3995,729 @@ body,
 }
 
 /* ========================================================== */
+/* ============== COURSE VIP PAGE =========================== */
+/* ========================================================== */
+
+.nails-vip-hero,
+.nails-vip-intro,
+.nails-vip-modules,
+.nails-vip-schedule,
+.nails-vip-includes,
+.nails-vip-investment,
+.nails-vip-policy,
+.nails-vip-location {
+  width: 100%;
+  padding-inline: max(
+    var(--site-gutter, 24px),
+    calc((100vw - var(--layout-max-width)) / 2 + var(--site-gutter, 24px))
+  );
+}
+
+.nails-vip-hero {
+  position: relative;
+  min-height: calc(100svh - 70px);
+  padding-block: clamp(58px, 8vw, 110px);
+  display: grid;
+  grid-template-columns: minmax(320px, 0.86fr) minmax(420px, 1.14fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 104px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 22%, rgba(216, 179, 106, 0.15), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(216, 179, 106, 0.1), transparent 26%),
+    linear-gradient(135deg, #050505 0%, #111111 48%, #050505 100%);
+  border-bottom: 1px solid rgba(216, 179, 106, 0.22);
+  isolation: isolate;
+}
+
+.nails-vip-hero::before,
+.nails-vip-hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nails-vip-hero::before {
+  top: 7%;
+  right: -9%;
+  width: clamp(280px, 36vw, 620px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(216, 179, 106, 0.16);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(216, 179, 106, 0.16), transparent 60%),
+    conic-gradient(from 120deg, transparent, rgba(216, 179, 106, 0.2), transparent 54%);
+  filter: blur(0.4px);
+  opacity: 0.75;
+  animation: nailsVipHaloDrift 16s ease-in-out infinite;
+}
+
+.nails-vip-hero::after {
+  left: -18%;
+  bottom: -24%;
+  width: clamp(320px, 48vw, 820px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(245, 222, 163, 0.1), transparent 62%);
+  animation: nailsVipGlowPulse 8s ease-in-out infinite;
+}
+
+.nails-vip-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  animation: nailsVipCopyIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.nails-vip-pill {
+  min-height: 34px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(216, 179, 106, 0.44);
+  color: #d8b36a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  animation: nailsVipPillSpark 3.8s ease-in-out infinite;
+}
+
+.nails-vip-hero h1 {
+  max-width: 8.2ch;
+  margin: 20px 0 0;
+  color: #f5dea3;
+  font-family: var(--font-display), serif;
+  font-size: clamp(58px, 8.2vw, 116px);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.nails-vip-hero p {
+  max-width: 58ch;
+  margin: 28px 0 0;
+  color: #dfd1b3;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.8;
+}
+
+.nails-vip-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nails-vip-actions a,
+.nails-vip-investment > a,
+.nails-vip-location a {
+  min-height: 46px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 179, 106, 0.5);
+  color: #f4d892;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.nails-vip-actions a:first-child,
+.nails-vip-investment > a {
+  background: #d8b36a;
+  color: #090909;
+}
+
+.nails-vip-actions a:hover,
+.nails-vip-investment > a:hover,
+.nails-vip-location a:hover {
+  transform: translateY(-2px);
+  background: #f5dea3;
+  color: #090909;
+}
+
+.nails-vip-hero-media {
+  position: relative;
+  z-index: 1;
+  min-height: clamp(480px, 56vw, 760px);
+  animation: nailsVipMediaIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.12s both;
+}
+
+.nails-vip-hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 7% 0 0;
+  border: 1px solid rgba(216, 179, 106, 0.34);
+  background:
+    linear-gradient(145deg, rgba(216, 179, 106, 0.08), transparent 54%),
+    #090909;
+  animation: nailsVipFrameBreath 5.8s ease-in-out infinite;
+}
+
+.nails-vip-hero-image {
+  position: absolute;
+  inset: auto 50% 0 auto;
+  width: min(86%, 640px);
+  height: auto;
+  max-height: 96%;
+  transform: translateX(50%);
+  object-fit: contain;
+  filter: drop-shadow(0 34px 84px rgba(0, 0, 0, 0.66));
+  animation: nailsVipPortraitFloat 7.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.nails-vip-intro,
+.nails-vip-modules,
+.nails-vip-schedule,
+.nails-vip-includes,
+.nails-vip-investment,
+.nails-vip-policy,
+.nails-vip-location {
+  padding-block: clamp(62px, 8vw, 108px);
+  background: #090909;
+  color: #ecd7a6;
+}
+
+.nails-vip-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.88fr) minmax(320px, 1.12fr);
+  align-items: end;
+  gap: clamp(28px, 5vw, 74px);
+  border-top: 1px solid rgba(216, 179, 106, 0.16);
+}
+
+.nails-vip-intro h2,
+.nails-vip-section-head h2,
+.nails-vip-location h2 {
+  margin: 0;
+  color: #f5dea3;
+  font-family: var(--font-display), serif;
+  font-size: clamp(38px, 5.2vw, 70px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.nails-vip-intro p,
+.nails-vip-location p {
+  max-width: 64ch;
+  margin: 0;
+  color: #d8c9a8;
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.nails-vip-section-head {
+  max-width: 780px;
+  margin-bottom: clamp(30px, 5vw, 54px);
+}
+
+.nails-vip-module-grid,
+.nails-vip-include-grid,
+.nails-vip-price-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.nails-vip-module-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.nails-vip-module-card,
+.nails-vip-include-grid article,
+.nails-vip-price-grid article,
+.nails-vip-schedule-card,
+.nails-vip-policy-list,
+.nails-vip-location > div,
+.nails-vip-kit {
+  border: 1px solid rgba(216, 179, 106, 0.32);
+  background:
+    linear-gradient(145deg, rgba(216, 179, 106, 0.09), transparent 52%),
+    #111111;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.nails-vip-module-card:hover,
+.nails-vip-include-grid article:hover,
+.nails-vip-price-grid article:hover,
+.nails-vip-schedule-card:hover,
+.nails-vip-kit:hover,
+.nails-vip-location > div:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 222, 163, 0.58);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  background:
+    linear-gradient(145deg, rgba(216, 179, 106, 0.15), transparent 58%),
+    #141414;
+}
+
+.nails-vip-module-card {
+  min-height: 146px;
+  padding: 22px;
+  display: grid;
+  align-content: space-between;
+  gap: 22px;
+}
+
+.nails-vip-module-card span {
+  color: #d8b36a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.nails-vip-module-card h3,
+.nails-vip-include-grid h3 {
+  margin: 0;
+  color: #f2e0b6;
+  font-size: 17px;
+  line-height: 1.28;
+}
+
+.nails-vip-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nails-vip-schedule-card {
+  padding: clamp(26px, 4vw, 42px);
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 28px;
+}
+
+.nails-vip-schedule-card > span {
+  color: #d8b36a;
+  font-family: var(--font-display), serif;
+  font-size: 44px;
+  line-height: 0.95;
+}
+
+.nails-vip-schedule-card li,
+.nails-vip-policy-list p {
+  color: #f1e6ce;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.nails-vip-schedule-card li + li {
+  margin-top: 10px;
+}
+
+.nails-vip-alert {
+  margin: 18px 0 0;
+  padding: 22px;
+  border: 1px solid rgba(216, 179, 106, 0.32);
+  color: #f1d68e;
+  background: rgba(216, 179, 106, 0.08);
+  font-weight: 700;
+}
+
+.nails-vip-include-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.nails-vip-include-grid article {
+  min-height: 150px;
+  padding: 24px;
+  display: grid;
+  align-content: space-between;
+}
+
+.nails-vip-include-grid span {
+  color: #d8b36a;
+  font-size: 22px;
+}
+
+.nails-vip-kit {
+  margin-top: 14px;
+  padding: clamp(24px, 4vw, 42px);
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(320px, 1.22fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+.nails-vip-kit p {
+  max-width: 40ch;
+  margin: 0;
+  color: #d8c9a8;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.nails-vip-mini-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.nails-vip-mini-image {
+  width: 100%;
+  height: clamp(220px, 22vw, 320px);
+  object-fit: cover;
+  border: 1px solid rgba(216, 179, 106, 0.26);
+  transition:
+    transform 0.55s ease,
+    filter 0.55s ease,
+    border-color 0.55s ease;
+}
+
+.nails-vip-mini-image:hover {
+  transform: scale(1.045);
+  border-color: rgba(245, 222, 163, 0.58);
+  filter: saturate(1.12) contrast(1.06);
+}
+
+.nails-vip-price-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nails-vip-price-grid article {
+  min-height: 180px;
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.nails-vip-price-grid span {
+  color: #d8b36a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nails-vip-price-grid strong {
+  display: block;
+  margin-top: 14px;
+  color: #f5dea3;
+  font-family: var(--font-display), serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.nails-vip-price-grid p {
+  margin: 12px 0 0;
+  color: #d8c9a8;
+}
+
+.nails-vip-investment > a {
+  margin-top: 22px;
+}
+
+.nails-vip-policy-list {
+  padding: clamp(26px, 4vw, 44px);
+}
+
+.nails-vip-policy-list p {
+  margin: 0;
+  padding-left: 22px;
+  position: relative;
+}
+
+.nails-vip-policy-list p::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  background: #d8b36a;
+  transform: rotate(45deg);
+}
+
+.nails-vip-policy-list p + p {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(216, 179, 106, 0.28);
+}
+
+.nails-vip-location {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding-bottom: clamp(80px, 10vw, 130px);
+}
+
+.nails-vip-location > div {
+  padding: clamp(26px, 4vw, 44px);
+}
+
+.nails-vip-location p {
+  margin-top: 12px;
+}
+
+.nails-vip-location a {
+  margin-top: 24px;
+}
+
+.nails-vip-actions a,
+.nails-vip-investment > a,
+.nails-vip-location a {
+  overflow: hidden;
+  position: relative;
+}
+
+.nails-vip-actions a::before,
+.nails-vip-investment > a::before,
+.nails-vip-location a::before {
+  content: "";
+  position: absolute;
+  inset: -50% auto -50% -70%;
+  width: 46%;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), transparent);
+  transition: transform 0.74s ease;
+}
+
+.nails-vip-actions a:hover::before,
+.nails-vip-investment > a:hover::before,
+.nails-vip-location a:hover::before {
+  transform: translateX(440%) skewX(-18deg);
+}
+
+.nails-vip-section-head,
+.nails-vip-intro > div,
+.nails-vip-intro > p,
+.nails-vip-alert,
+.nails-vip-kit,
+.nails-vip-policy-list,
+.nails-vip-location > div {
+  animation: nailsVipRise 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.nails-vip-module-card,
+.nails-vip-include-grid article,
+.nails-vip-price-grid article,
+.nails-vip-schedule-card,
+.nails-vip-mini-image {
+  animation: nailsVipRise 0.76s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.nails-vip-module-card:nth-child(2),
+.nails-vip-include-grid article:nth-child(2),
+.nails-vip-price-grid article:nth-child(2),
+.nails-vip-schedule-card:nth-child(2),
+.nails-vip-mini-image:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.nails-vip-module-card:nth-child(3),
+.nails-vip-include-grid article:nth-child(3),
+.nails-vip-price-grid article:nth-child(3),
+.nails-vip-mini-image:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.nails-vip-module-card:nth-child(4),
+.nails-vip-include-grid article:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.nails-vip-module-card:nth-child(5),
+.nails-vip-include-grid article:nth-child(5) {
+  animation-delay: 0.24s;
+}
+
+.nails-vip-module-card:nth-child(n + 6) {
+  animation-delay: 0.3s;
+}
+
+@supports (animation-timeline: view()) {
+  .nails-vip-section-head,
+  .nails-vip-intro > div,
+  .nails-vip-intro > p,
+  .nails-vip-alert,
+  .nails-vip-kit,
+  .nails-vip-policy-list,
+  .nails-vip-location > div,
+  .nails-vip-module-card,
+  .nails-vip-include-grid article,
+  .nails-vip-price-grid article,
+  .nails-vip-schedule-card,
+  .nails-vip-mini-image {
+    animation-timeline: view();
+    animation-range: entry 8% cover 32%;
+  }
+}
+
+@keyframes nailsVipCopyIn {
+  from {
+    opacity: 0;
+    translate: 0 22px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes nailsVipMediaIn {
+  from {
+    opacity: 0;
+    scale: 0.985;
+    translate: 22px 0;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes nailsVipRise {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes nailsVipPortraitFloat {
+  0%,
+  100% {
+    transform: translateX(50%) translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateX(50%) translateY(-12px) scale(1.012);
+  }
+}
+
+@keyframes nailsVipFrameBreath {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 rgba(216, 179, 106, 0), 0 24px 70px rgba(0, 0, 0, 0.32);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: inset 0 0 38px rgba(216, 179, 106, 0.08), 0 34px 90px rgba(0, 0, 0, 0.42);
+    transform: scale(1.012);
+  }
+}
+
+@keyframes nailsVipHaloDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(-24px, 18px, 0) rotate(18deg);
+  }
+}
+
+@keyframes nailsVipGlowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes nailsVipPillSpark {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(216, 179, 106, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 32px rgba(216, 179, 106, 0.16);
+  }
+}
+
+@media (max-width: 1180px) {
+  .nails-vip-module-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nails-vip-include-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .nails-vip-hero,
+  .nails-vip-intro,
+  .nails-vip-kit,
+  .nails-vip-location {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nails-vip-hero {
+    min-height: 0;
+  }
+
+  .nails-vip-hero-media {
+    min-height: clamp(420px, 76vw, 620px);
+  }
+
+  .nails-vip-schedule-grid,
+  .nails-vip-price-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .nails-vip-hero,
+  .nails-vip-intro,
+  .nails-vip-modules,
+  .nails-vip-schedule,
+  .nails-vip-includes,
+  .nails-vip-investment,
+  .nails-vip-policy,
+  .nails-vip-location {
+    padding-inline: var(--site-gutter, 18px);
+  }
+
+  .nails-vip-hero h1 {
+    max-width: 100%;
+    font-size: clamp(44px, 14vw, 62px);
+  }
+
+  .nails-vip-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nails-vip-module-grid,
+  .nails-vip-include-grid,
+  .nails-vip-mini-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nails-vip-schedule-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ========================================================== */
 /* ============== ELEGANT MOTION SYSTEM ===================== */
 /* ========================================================== */
 

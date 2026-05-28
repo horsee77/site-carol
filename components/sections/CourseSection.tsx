@@ -1,11 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { courseModules } from "@/lib/landing-data";
-
-const courseWhatsappUrl = `https://wa.me/5511998583928?text=${encodeURIComponent(
-  "Olá, Carol! Gostaria de receber informações sobre o curso de nail design e as próximas turmas.",
-)}`;
 
 export function CourseSection() {
   const [activeModuleId, setActiveModuleId] = useState(courseModules[0].id);
@@ -29,14 +26,9 @@ export function CourseSection() {
           <span>Turmas sob consulta</span>
         </div>
 
-        <a
-          href={courseWhatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nails-pill-button"
-        >
-          Consultar próxima turma
-        </a>
+        <Link href="/curso" className="nails-pill-button">
+          Ver apresentação completa
+        </Link>
       </div>
 
       <div className="nails-course-interactive">
@@ -81,14 +73,9 @@ export function CourseSection() {
             ))}
           </ul>
 
-          <a
-            href={courseWhatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nails-light-button"
-          >
+          <Link href="/curso" className="nails-light-button">
             Quero saber mais
-          </a>
+          </Link>
         </article>
       </div>
     </section>

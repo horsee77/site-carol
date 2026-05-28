@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -19,9 +20,9 @@ export function HeroSection() {
               Agendar horário
             </a>
 
-            <a href="#course" className="nails-light-button">
+            <Link href="/curso" className="nails-light-button">
               Curso
-            </a>
+            </Link>
           </div>
         </div>
 
