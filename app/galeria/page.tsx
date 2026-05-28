@@ -22,9 +22,9 @@ export const metadata: Metadata = {
       "Veja os trabalhos de nail design, alongamento, esmaltação em gel e acabamentos da Carol Monteiro Nails.",
     images: [
       {
-        url: absoluteUrl("/opengraph-image"),
-        width: 1200,
-        height: 630,
+        url: absoluteUrl(siteConfig.socialImage),
+        width: 1920,
+        height: 1080,
         alt: `${siteConfig.name} - galeria de unhas`,
       },
     ],

@@ -18,7 +18,7 @@ const bodyFont = Manrope({
   display: "swap",
 });
 
-const ogImage = absoluteUrl("/opengraph-image");
+const ogImage = absoluteUrl(siteConfig.socialImage);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -87,8 +87,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: ogImage,
-        width: 1200,
-        height: 630,
+        width: 1920,
+        height: 1080,
         alt: `${siteConfig.name} - nail designer em São Paulo`,
       },
     ],

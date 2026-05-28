@@ -27,6 +27,7 @@ export const siteConfig = {
   country: "BR",
   themeColor: "#eee2d4",
   backgroundColor: "#fbf5ee",
+  socialImage: "/assets/opengraph-image.png",
   localImages: [
     "/assets/photos/img-hero.png",
     "/assets/photos/img-01.png",
