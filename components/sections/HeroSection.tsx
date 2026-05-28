@@ -19,8 +19,8 @@ export function HeroSection() {
               Agendar horário
             </a>
 
-            <a href="#portfolio" className="nails-light-button">
-              Ver trabalhos
+            <a href="#course" className="nails-light-button">
+              Curso
             </a>
           </div>
         </div>

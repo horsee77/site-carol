@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import Script from "next/script";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const displayFont = Cormorant_Garamond({
@@ -16,40 +18,50 @@ const bodyFont = Manrope({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://carolmonteironails.com.br";
+const ogImage = absoluteUrl("/opengraph-image");
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
 
   title: {
-    default: "Carol Monteiro Nails | Nail Designer",
-    template: "%s | Carol Monteiro Nails",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
 
-  description:
-    "Carol Monteiro Nails é um espaço especializado em alongamento, banho de gel, esmaltação em gel, manicure, pedicure, plástica dos pés, reconstrução de unha e cursos profissionais.",
+  description: siteConfig.description,
 
   keywords: [
     "Carol Monteiro Nails",
+    "Carol Monteiro Nails São Paulo",
     "nail designer",
+    "nail designer em São Paulo",
     "alongamento de unhas",
+    "alongamento de unhas em São Paulo",
     "banho de gel",
     "esmaltação em gel",
     "manicure",
+    "manicure em São Paulo",
     "pedicure",
     "plástica dos pés",
     "reconstrução de unha",
     "curso de unhas",
+    "curso de alongamento de unhas",
     "unhas em gel",
+    "blindagem de unhas",
+    "nail art",
   ],
 
-  authors: [{ name: "Carol Monteiro Nails" }],
-  creator: "Carol Monteiro Nails",
-  publisher: "Carol Monteiro Nails",
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
 
   alternates: {
     canonical: "/",
+    languages: {
+      "pt-BR": "/",
+      "x-default": "/",
+    },
   },
 
   icons: {
@@ -63,30 +75,30 @@ export const metadata: Metadata = {
     apple: "/assets/icon-site.svg",
   },
 
+  manifest: "/manifest.webmanifest",
+
   openGraph: {
     type: "website",
-    locale: "pt_BR",
-    url: siteUrl,
-    siteName: "Carol Monteiro Nails",
-    title: "Carol Monteiro Nails | Nail Designer",
-    description:
-      "Unhas elegantes, atendimento cuidadoso e acabamento impecável para realçar sua beleza em cada detalhe.",
+    locale: siteConfig.locale,
+    url: "/",
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
     images: [
       {
-        url: "/assets/og/carol-monteiro-nails.jpg",
+        url: ogImage,
         width: 1200,
         height: 630,
-        alt: "Carol Monteiro Nails - Nail Designer",
+        alt: `${siteConfig.name} - nail designer em São Paulo`,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Carol Monteiro Nails | Nail Designer",
-    description:
-      "Alongamento, banho de gel, esmaltação em gel, manicure, pedicure e cursos profissionais.",
-    images: ["/assets/og/carol-monteiro-nails.jpg"],
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
+    images: [ogImage],
   },
 
   robots: {
@@ -101,6 +113,14 @@ export const metadata: Metadata = {
     },
   },
 
+  other: {
+    "geo.region": "BR-SP",
+    "geo.placename": siteConfig.city,
+    "business:contact_data:locality": siteConfig.city,
+    "business:contact_data:region": siteConfig.region,
+    "business:contact_data:country_name": "Brasil",
+  },
+
   category: "beauty",
 };
 
@@ -108,7 +128,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#eee2d4",
+  themeColor: siteConfig.themeColor,
   colorScheme: "light",
 };
 
@@ -122,7 +142,28 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${displayFont.variable} ${bodyFont.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '${siteConfig.metaPixelId}');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${siteConfig.metaPixelId}&ev=PageView&noscript=1" alt="" />`,
+          }}
+        />
+      </body>
     </html>
   );
 }

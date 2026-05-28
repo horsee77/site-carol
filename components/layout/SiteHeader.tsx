@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { NavMenu } from "@/components/navigation/NavMenu";
 import { navigationItems } from "@/lib/navigation";
 
 export function SiteHeader() {
   return (
     <header className="nails-header">
-      <a href="#" className="nails-brand" aria-label="Carol Monteiro Nails">
+      <Link href="/" className="nails-brand" aria-label="Carol Monteiro Nails">
         <Image
           src="/assets/logo/logo-01.svg"
           alt="Carol Monteiro Nails"
@@ -14,13 +15,13 @@ export function SiteHeader() {
           className="nails-brand-logo"
           priority
         />
-      </a>
+      </Link>
 
       <NavMenu items={navigationItems} />
 
-      <a href="#contact" className="nails-pill-button nails-header-cta">
-        Agendar horario
-      </a>
+      <Link href="/#contact" className="nails-pill-button nails-header-cta">
+        Agendar horário
+      </Link>
     </header>
   );
 }

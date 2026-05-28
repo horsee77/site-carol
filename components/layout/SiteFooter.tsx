@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { navigationItems } from "@/lib/navigation";
 
 const services = [
@@ -16,7 +17,7 @@ export function SiteFooter() {
     <footer className="nails-footer">
       <div className="nails-footer-inner">
         <div className="nails-footer-brand">
-          <a href="#" aria-label="Carol Monteiro Nails">
+          <Link href="/" aria-label="Carol Monteiro Nails">
             <Image
               src="/assets/logo/logo-01.svg"
               alt="Carol Monteiro Nails"
@@ -24,7 +25,7 @@ export function SiteFooter() {
               height={46}
               className="nails-footer-logo"
             />
-          </a>
+          </Link>
 
           <p>
             Cuidado, técnica e elegância para realçar a beleza das suas unhas em
@@ -47,7 +48,7 @@ export function SiteFooter() {
           <ul>
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>

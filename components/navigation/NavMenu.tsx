@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import type { NavigationItem } from "@/lib/navigation";
 
@@ -14,9 +15,9 @@ export function NavMenu({ items }: NavMenuProps) {
     <div className="nails-nav-wrap">
       <nav className="nails-nav nails-nav-desktop" aria-label="Main Navigation">
         {items.map((item) => (
-          <a key={item.href} href={item.href}>
+          <Link key={item.href} href={item.href}>
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -40,13 +41,21 @@ export function NavMenu({ items }: NavMenuProps) {
       >
         <nav className="nails-mobile-nav" aria-label="Mobile Navigation">
           {items.map((item) => (
-            <a key={`mobile-${item.href}`} href={item.href} onClick={() => setIsOpen(false)}>
+            <Link
+              key={`mobile-${item.href}`}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+            >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contact" className="nails-pill-button" onClick={() => setIsOpen(false)}>
-            Agendar horario
-          </a>
+          <Link
+            href="/#contact"
+            className="nails-pill-button"
+            onClick={() => setIsOpen(false)}
+          >
+            Agendar horário
+          </Link>
         </nav>
       </div>
     </div>
