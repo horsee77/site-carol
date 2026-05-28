@@ -3995,6 +3995,228 @@ body,
 }
 
 /* ========================================================== */
+/* ============== ELEGANT MOTION SYSTEM ===================== */
+/* ========================================================== */
+
+@keyframes nailsFadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nailsHeaderDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nailsHeroFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.015);
+  }
+}
+
+@keyframes nailsSoftReveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes nailsLineGrow {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@keyframes nailsWhatsGlow {
+  0%,
+  100% {
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.22);
+  }
+
+  50% {
+    box-shadow: 0 18px 44px rgba(37, 211, 102, 0.38);
+  }
+}
+
+.nails-header {
+  animation: nailsHeaderDrop 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.nails-hero-kicker,
+.nails-hero-copy h1,
+.nails-hero-copy p,
+.nails-hero-actions {
+  animation: nailsFadeRise 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.nails-hero-kicker {
+  animation-delay: 0.08s;
+}
+
+.nails-hero-copy h1 {
+  animation-delay: 0.18s;
+}
+
+.nails-hero-copy p {
+  animation-delay: 0.3s;
+}
+
+.nails-hero-actions {
+  animation-delay: 0.42s;
+}
+
+.nails-hero-media {
+  animation: nailsSoftReveal 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) 0.18s both;
+}
+
+.nails-hero-image {
+  animation: nailsHeroFloat 7.5s ease-in-out 1s infinite;
+  will-change: transform;
+}
+
+.nails-dark-button,
+.nails-light-button,
+.nails-pill-button,
+.nails-gallery-preview-button,
+.nails-footer-whatsapp {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.nails-dark-button::before,
+.nails-light-button::before,
+.nails-pill-button::before,
+.nails-gallery-preview-button::before,
+.nails-footer-whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -55%;
+  z-index: 0;
+  width: 42%;
+  pointer-events: none;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.34),
+    transparent
+  );
+  transition: transform 0.72s ease;
+}
+
+.nails-dark-button:hover::before,
+.nails-light-button:hover::before,
+.nails-pill-button:hover::before,
+.nails-gallery-preview-button:hover::before,
+.nails-footer-whatsapp:hover::before {
+  transform: translateX(430%) skewX(-18deg);
+}
+
+.nails-service-image,
+.nails-gallery-preview-image,
+.nails-gallery-card-image,
+.nails-insta-image,
+.nails-gallery-img {
+  transition:
+    transform 0.55s ease,
+    filter 0.55s ease;
+}
+
+.nails-service-card:hover .nails-service-image,
+.nails-gallery-preview-card:hover .nails-gallery-preview-image,
+.nails-gallery-card:hover .nails-gallery-card-image,
+.nails-insta-link:hover .nails-insta-image {
+  transform: scale(1.045);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.nails-gallery-preview-card,
+.nails-gallery-card,
+.nails-service-card,
+.nails-why-card,
+.nails-review-card,
+.nails-course-interactive {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.nails-gallery-preview-card:nth-child(1),
+.nails-gallery-card:nth-child(1),
+.nails-service-card:nth-child(1) {
+  animation: nailsFadeRise 0.74s ease both;
+}
+
+.nails-gallery-preview-card:nth-child(2),
+.nails-gallery-card:nth-child(2),
+.nails-service-card:nth-child(2) {
+  animation: nailsFadeRise 0.74s ease 0.08s both;
+}
+
+.nails-gallery-preview-card:nth-child(3),
+.nails-gallery-card:nth-child(3),
+.nails-service-card:nth-child(3) {
+  animation: nailsFadeRise 0.74s ease 0.16s both;
+}
+
+.nails-footer-bottom::before {
+  transform-origin: center;
+  animation: nailsLineGrow 0.9s ease both;
+}
+
+.nails-whatsapp-float {
+  animation: nailsWhatsGlow 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .nails-hero-image {
+    transform: none !important;
+  }
+}
+
+/* ========================================================== */
 /* ============== FIX DEFINITIVO RESPONSIVO ================= */
 /* ============== BLOCO FINAL - NÃO REMOVER ================= */
 /* ========================================================== */
