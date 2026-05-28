@@ -6,13 +6,14 @@ export function HeroSection() {
     <section className="nails-block nails-hero-block">
       <div className="nails-hero-inner">
         <div className="nails-hero-copy">
-          <span className="nails-hero-kicker">Carol Monteiro Nails</span>
+          <span className="nails-hero-kicker">Carol Monteiro Nails em Atibaia</span>
 
-          <h1>Unhas elegantes para realçar sua beleza</h1>
+          <h1>Nails em Atibaia para realçar sua beleza</h1>
 
           <p>
             Alongamento, banho de gel, esmaltação em gel, manicure, pedicure e
-            cuidados especiais para deixar suas unhas impecáveis em cada detalhe.
+            cuidados especiais em Atibaia para deixar suas unhas impecáveis em
+            cada detalhe.
           </p>
 
           <div className="nails-hero-actions">

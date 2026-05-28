@@ -29,7 +29,7 @@ export function SiteFooter() {
 
           <p>
             Cuidado, técnica e elegância para realçar a beleza das suas unhas em
-            cada detalhe.
+            Atibaia.
           </p>
 
           <a
@@ -88,7 +88,7 @@ export function SiteFooter() {
               </a>
             </li>
 
-            <li>São Paulo - SP</li>
+            <li>Atibaia - SP</li>
           </ul>
         </div>
 

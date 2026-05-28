@@ -8,7 +8,7 @@ import { absoluteUrl, jsonLdScript, siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Galeria de unhas",
   description:
-    "Galeria de trabalhos da Carol Monteiro Nails com alongamento, banho de gel, esmaltação em gel, nail art e acabamentos delicados.",
+    "Galeria de trabalhos da Carol Monteiro Nails em Atibaia com alongamento, banho de gel, esmaltação em gel, nail art e acabamentos delicados.",
   alternates: {
     canonical: "/galeria",
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `Galeria de unhas | ${siteConfig.name}`,
     description:
-      "Veja os trabalhos de nail design, alongamento, esmaltação em gel e acabamentos da Carol Monteiro Nails.",
+      "Veja os trabalhos de nail design em Atibaia, alongamento, esmaltação em gel e acabamentos da Carol Monteiro Nails.",
     images: [
       {
         url: absoluteUrl(siteConfig.socialImage),
@@ -68,9 +68,9 @@ export default function GalleryPage() {
           <span className="nails-section-kicker">Galeria</span>
           <h1 id="gallery-title">A arte da Carol em cada detalhe</h1>
           <p>
-            Uma seleção viva dos trabalhos feitos no estúdio: formatos elegantes,
-            brilho delicado, acabamento limpo e composições pensadas para cada
-            cliente.
+            Uma seleção viva dos trabalhos feitos no estúdio em Atibaia:
+            formatos elegantes, brilho delicado, acabamento limpo e composições
+            pensadas para cada cliente.
           </p>
           <div className="nails-gallery-stats" aria-label="Especialidades da galeria">
             <span>Alongamento</span>

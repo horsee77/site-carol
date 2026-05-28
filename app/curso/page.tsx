@@ -59,9 +59,9 @@ const policies = [
 ];
 
 export const metadata: Metadata = {
-  title: "Curso VIP Nail Designer Iniciante",
+  title: "Curso VIP Nail Designer Iniciante em Atibaia",
   description:
-    "Página completa do Curso VIP Nail Designer Iniciante da Carol Monteiro: conteúdo, cronograma, inclusos, investimento e inscrição pelo WhatsApp.",
+    "Página completa do Curso VIP Nail Designer Iniciante em Atibaia da Carol Monteiro: conteúdo, cronograma, inclusos, investimento e inscrição pelo WhatsApp.",
   alternates: {
     canonical: "/curso",
   },
@@ -70,15 +70,15 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: "/curso",
     siteName: siteConfig.name,
-    title: `Curso VIP Nail Designer Iniciante | ${siteConfig.name}`,
+    title: `Curso VIP Nail Designer Iniciante em Atibaia | ${siteConfig.name}`,
     description:
-      "Aprenda do zero ao sucesso com técnica, prática orientada, apostila, certificado, kit de materiais e suporte vitalício.",
+      "Aprenda nail design em Atibaia do zero ao sucesso com técnica, prática orientada, apostila, certificado, kit de materiais e suporte vitalício.",
     images: [
       {
         url: absoluteUrl(siteConfig.socialImage),
         width: 1920,
         height: 1080,
-        alt: `${siteConfig.name} - Curso VIP Nail Designer Iniciante`,
+        alt: `${siteConfig.name} - Curso VIP Nail Designer Iniciante em Atibaia`,
       },
     ],
   },
@@ -90,7 +90,7 @@ export default function CoursePage() {
     "@context": "https://schema.org",
     "@type": "Course",
     "@id": absoluteUrl("/curso#course"),
-    name: "Curso VIP Nail Designer Iniciante",
+    name: "Curso VIP Nail Designer Iniciante em Atibaia",
     description: metadata.description,
     provider: {
       "@id": absoluteUrl("/#business"),
@@ -274,7 +274,7 @@ export default function CoursePage() {
         <div>
           <span className="nails-section-kicker">Localização</span>
           <h2>Lucas Nogueira Gracez, 2213</h2>
-          <p>Andar superior - Sala 15</p>
+          <p>Atibaia - SP | Andar superior - Sala 15</p>
           <p>Ponto de referência: ao lado da Drogaria São Paulo.</p>
         </div>
         <div>
