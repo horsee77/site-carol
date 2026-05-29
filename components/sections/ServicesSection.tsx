@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { scheduleWhatsappUrl } from "@/lib/contact";
 import { serviceCards } from "@/lib/landing-data";
 
 export function ServicesSection() {
@@ -9,7 +10,12 @@ export function ServicesSection() {
           <span className="nails-section-kicker">Serviços</span>
           <h2>Cuidados exclusivos para mãos impecáveis</h2>
         </div>
-        <a href="#contact" className="nails-light-button">
+        <a
+          href={scheduleWhatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nails-light-button"
+        >
           Agendar horário
         </a>
       </div>

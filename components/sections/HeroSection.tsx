@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { scheduleWhatsappUrl } from "@/lib/contact";
 
 export function HeroSection() {
   return (
@@ -17,7 +18,12 @@ export function HeroSection() {
           </p>
 
           <div className="nails-hero-actions">
-            <a href="#contact" className="nails-dark-button">
+            <a
+              href={scheduleWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nails-dark-button"
+            >
               Agendar horário
             </a>
 

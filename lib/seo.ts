@@ -1,3 +1,5 @@
+import { scheduleWhatsappUrl, whatsappUrl } from "@/lib/contact";
+
 const defaultSiteUrl = "https://carolmonteironails.com.br";
 
 function getSiteUrl() {
@@ -18,7 +20,8 @@ export const siteConfig = {
     "Alongamento, banho de gel, esmaltação em gel, manicure, pedicure e cursos profissionais em Atibaia.",
   phone: "+5511998583928",
   displayPhone: "+55 11 99858-3928",
-  whatsappUrl: "https://wa.me/5511998583928",
+  whatsappUrl,
+  scheduleWhatsappUrl,
   instagramUrl: "https://www.instagram.com/_caroolmonteiro.nail",
   instagramHandle: "@_caroolmonteiro.nail",
   metaPixelId: "1341191337909574",

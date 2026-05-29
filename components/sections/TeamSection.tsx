@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { scheduleWhatsappUrl } from "@/lib/contact";
 import { instagramProfileUrl } from "@/lib/instagram";
 
 export function TeamSection() {
@@ -47,7 +48,12 @@ export function TeamSection() {
         </div>
 
         <div className="nails-carol-actions">
-          <a href="#contact" className="nails-pill-button">
+          <a
+            href={scheduleWhatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nails-pill-button"
+          >
             Agendar horário
           </a>
           <a

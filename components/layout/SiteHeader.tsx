@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NavMenu } from "@/components/navigation/NavMenu";
+import { scheduleWhatsappUrl } from "@/lib/contact";
 import { navigationItems } from "@/lib/navigation";
 
 export function SiteHeader() {
@@ -19,9 +20,14 @@ export function SiteHeader() {
 
       <NavMenu items={navigationItems} />
 
-      <Link href="/#contact" className="nails-pill-button nails-header-cta">
+      <a
+        href={scheduleWhatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="nails-pill-button nails-header-cta"
+      >
         Agendar horário
-      </Link>
+      </a>
     </header>
   );
 }

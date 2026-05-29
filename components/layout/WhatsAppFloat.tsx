@@ -1,7 +1,9 @@
+import { whatsappUrl } from "@/lib/contact";
+
 export function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/5511998583928"
+      href={whatsappUrl}
       className="nails-whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"

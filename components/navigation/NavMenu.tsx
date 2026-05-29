@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { scheduleWhatsappUrl } from "@/lib/contact";
 import type { NavigationItem } from "@/lib/navigation";
 
 type NavMenuProps = {
@@ -49,13 +50,15 @@ export function NavMenu({ items }: NavMenuProps) {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/#contact"
+          <a
+            href={scheduleWhatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="nails-pill-button"
             onClick={() => setIsOpen(false)}
           >
             Agendar horário
-          </Link>
+          </a>
         </nav>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { scheduleWhatsappUrl, whatsappUrl } from "@/lib/contact";
 import { navigationItems } from "@/lib/navigation";
 
 const services = [
@@ -33,7 +34,7 @@ export function SiteFooter() {
           </p>
 
           <a
-            href="https://wa.me/5511998583928"
+            href={scheduleWhatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="nails-footer-whatsapp"
@@ -70,7 +71,7 @@ export function SiteFooter() {
           <ul>
             <li>
               <a
-                href="https://wa.me/5511998583928"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -80,7 +80,7 @@ const structuredData = {
       },
       potentialAction: {
         "@type": "ReserveAction",
-        target: siteConfig.whatsappUrl,
+        target: siteConfig.scheduleWhatsappUrl,
         name: "Agendar pelo WhatsApp",
       },
     },
