@@ -5,19 +5,45 @@ import { testimonials } from "@/lib/landing-data";
 
 export function TestimonialsSection() {
   const reviewTrackRef = useRef<HTMLDivElement>(null);
+  const didScrollOnPointerDownRef = useRef(false);
 
   function scrollReviews(direction: -1 | 1) {
     const track = reviewTrackRef.current;
-    const card = track?.querySelector<HTMLElement>(".nails-review-card");
 
     if (!track) {
       return;
     }
 
-    track.scrollBy({
-      left: direction * ((card?.offsetWidth || track.clientWidth) + 18),
-      behavior: "smooth",
+    const card = track.querySelector<HTMLElement>(".nails-review-card");
+    const styles = window.getComputedStyle(track);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap) || 0;
+    const step = (card?.getBoundingClientRect().width || track.clientWidth) + gap;
+    const maxScrollLeft = track.scrollWidth - track.clientWidth;
+    const currentIndex = Math.round(track.scrollLeft / step);
+    const maxIndex = Math.max(0, Math.ceil(maxScrollLeft / step));
+    const nextIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+    const shouldScrollImmediately =
+      window.matchMedia("(max-width: 680px)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    track.scrollTo({
+      left: Math.min(nextIndex * step, maxScrollLeft),
+      behavior: shouldScrollImmediately ? "auto" : "smooth",
     });
+  }
+
+  function handleReviewPointerDown(direction: -1 | 1) {
+    didScrollOnPointerDownRef.current = true;
+    scrollReviews(direction);
+  }
+
+  function handleReviewClick(direction: -1 | 1) {
+    if (didScrollOnPointerDownRef.current) {
+      didScrollOnPointerDownRef.current = false;
+      return;
+    }
+
+    scrollReviews(direction);
   }
 
   return (
@@ -31,14 +57,16 @@ export function TestimonialsSection() {
         <div className="nails-review-controls" aria-label="Navegar depoimentos">
           <button
             type="button"
-            onClick={() => scrollReviews(-1)}
+            onPointerDown={() => handleReviewPointerDown(-1)}
+            onClick={() => handleReviewClick(-1)}
             aria-label="Depoimento anterior"
           >
             &#8592;
           </button>
           <button
             type="button"
-            onClick={() => scrollReviews(1)}
+            onPointerDown={() => handleReviewPointerDown(1)}
+            onClick={() => handleReviewClick(1)}
             aria-label="Próximo depoimento"
           >
             &#8594;

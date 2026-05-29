@@ -3581,6 +3581,7 @@ body,
 
 .nails-review-list {
   overscroll-behavior-x: contain;
+  scroll-padding-inline: 0;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -5228,8 +5229,11 @@ body,
   }
 
   .nails-review-card {
-    flex: 0 0 min(540px, calc(100vw - (var(--site-gutter) * 2)));
-    max-width: calc(100vw - (var(--site-gutter) * 2));
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-stop: always;
   }
 
   .nails-mobile-panel {
@@ -5384,8 +5388,10 @@ body,
   }
 
   .nails-review-card {
-    flex-basis: calc(100vw - (var(--site-gutter) * 2));
-    max-width: calc(100vw - (var(--site-gutter) * 2));
+    flex-basis: 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   .nails-insta-grid {
@@ -5450,6 +5456,10 @@ body,
   .nails-review-controls {
     width: 100%;
     justify-content: flex-end;
+  }
+
+  .nails-review-controls button {
+    touch-action: manipulation;
   }
 }
 
